@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class laser : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
+        //replace "Gun" with the name of whatever Game Object that's pointing at the mouse
         transform.parent = GameObject.Find("Gun").transform;
         Destroy(gameObject, 1.5f);
     }
-
-    // Update is called once per frame
     void Update()
     {
         

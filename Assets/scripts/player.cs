@@ -7,12 +7,13 @@ using UnityEngine.Animations;
 
 public class player : MonoBehaviour
 {
+    public GameObject swotrmxfisjfk;
     public float speed;
-    public bool fishing;
     public fishshooter fishgun;
     public float score;
     public Rigidbody2D rb;
     public int hooks;
+    public Vector2 inputVector;
 
     void Start()
     {
@@ -22,28 +23,23 @@ public class player : MonoBehaviour
     void Update()
     {
         //i could do my own acceleration thing for this dont know if i will 
-        Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //no i wont
+        inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.velocity = (inputVector.normalized) * speed;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //instantiate the fishibgthign
-            fishing = true;
-        }
-        if (inputVector!=Vector2.zero) { fishing = false; }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         print("collided");
-        if (fishgun.fishInventory[7] < 1)
+        if (fishgun.fishInventory[7] <= 0)
         {
             Destroy(gameObject);
         }
+        else
+        {
+            Instantiate(swotrmxfisjfk);
+        }
         fishgun.fishInventory[7] -=1;
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
 
-    }
 }

@@ -67,11 +67,12 @@ public class fishshooter : MonoBehaviour
 
             case 5:
                 //laser
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && fishInventory[5]>0)
                 {
                     Instantiate(bulletPrefabs[5], gameObject.transform);
+                    fishInventory[5] -= 1;
                 }
-            break;
+                break;
 
             case 6:
                 //THE

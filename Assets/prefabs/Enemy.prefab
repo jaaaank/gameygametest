@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 5
+  speed: 7
   sprite: {fileID: 2314583081438240897}
 --- !u!50 &3251278412396716545
 Rigidbody2D:
