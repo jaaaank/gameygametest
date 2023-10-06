@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class fishshooter : MonoBehaviour
@@ -9,6 +10,7 @@ public class fishshooter : MonoBehaviour
     public Camera cam;
     public GameObject player;
     private int fishEquipped = 0;
+    public Text uhhtext;
     /* 
     0 = basic
     1 = duo
@@ -20,8 +22,13 @@ public class fishshooter : MonoBehaviour
     7 = sword
     */
 
-    public int[] fishInventory= {10,10,10,10,10,10,10,10};
+    public int[] fishInventory= {0,0,0,0,0,0,0,0};
     public GameObject[] bulletPrefabs;
+
+    private void Start()
+    {
+        updateInterface();
+    }
 
     // Update is called once per frame
     void Update()
@@ -72,7 +79,7 @@ public class fishshooter : MonoBehaviour
                     Instantiate(bulletPrefabs[5], gameObject.transform);
                     fishInventory[5] -= 1;
                 }
-                break;
+            break;
 
             case 6:
                 //THE
@@ -115,6 +122,13 @@ public class fishshooter : MonoBehaviour
         {
             Instantiate(bulletPrefabs[bullet], transform.position, transform.rotation);
             fishInventory[bullet] -= 1;
+            updateInterface();
         }
+    }
+
+
+    public void updateInterface()
+    {
+        uhhtext.text = (fishInventory[0].ToString() + "   " + fishInventory[1].ToString() + "   " + fishInventory[2].ToString() + "   " + fishInventory[3].ToString() + "   " + fishInventory[4].ToString() + "   " + fishInventory[5].ToString() + "   " + fishInventory[6].ToString());
     }
 }

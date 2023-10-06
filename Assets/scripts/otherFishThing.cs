@@ -64,5 +64,6 @@ public class otherFishThing : MonoBehaviour
         mainfishthing.transform.Translate(new Vector3(0, 0, -40));
         mainfishthing.isfishing = false;
         mainfishthing.difficulty = 0.0f;
+        fishshooter.updateInterface();
     }
 }
