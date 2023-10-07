@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class fishing : MonoBehaviour
 {
+    public AudioSource fail;
+    public AudioSource success;
     public int fishofchoice;
     public float difficulty = 0.0f;
     public player player;
@@ -58,7 +60,6 @@ public class fishing : MonoBehaviour
 
     void gofish()
     {
-
         //I should do wieghted randomization so like the better fishies are rarer but i dont know how to do that and i dont really want to figure it out
         fishofchoice = Random.Range(0, (fishshooter.fishInventory.Length + 1));
         difficulty = 1 + fishofchoice * .75f;

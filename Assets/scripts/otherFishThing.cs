@@ -51,6 +51,7 @@ public class otherFishThing : MonoBehaviour
     {
         if (caught)
         {
+            mainfishthing.success.Play();
             if (mainfishthing.fishofchoice == 8)
             {
                 playr.hooks++;
@@ -60,6 +61,11 @@ public class otherFishThing : MonoBehaviour
             {
                 fishshooter.fishInventory[mainfishthing.fishofchoice]++;
             }
+        }
+        else
+        {
+            mainfishthing.fail.Play();
+
         }
         transform.Translate(Vector2.up * Random.Range(-4.0f,4.0f));
         mainfishthing.transform.Translate(new Vector3(0, 0, -40));
