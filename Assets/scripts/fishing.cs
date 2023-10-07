@@ -58,11 +58,7 @@ public class fishing : MonoBehaviour
 
     void gofish()
     {
-        if (player.hooks > 0)
-        {
-            youresize.y = (1.2f * player.hooks);
-            youfishing.transform.localScale = Vector3.Scale(youfishing.transform.localScale, youresize);
-        }
+
         //I should do wieghted randomization so like the better fishies are rarer but i dont know how to do that and i dont really want to figure it out
         fishofchoice = Random.Range(0, (fishshooter.fishInventory.Length + 1));
         difficulty = 1 + fishofchoice * .75f;
@@ -73,5 +69,14 @@ public class fishing : MonoBehaviour
        //whenever the player starts fishin AND I DONT HAVE TIME FOR THAT AUUGHGGGHHHH GRRRRR
        transform.Translate(new Vector3(0, 0, 40));
        isfishing = true;
+    }
+    public void moreHooks()
+    {
+        if (player.hooks > 0)
+        {
+            youresize.y = (1.01f * player.hooks);
+            youfishing.transform.localScale = Vector3.Scale(youfishing.transform.localScale, youresize);
+            print("more hooks");
+        }
     }
 }

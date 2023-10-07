@@ -54,6 +54,7 @@ public class otherFishThing : MonoBehaviour
             if (mainfishthing.fishofchoice == 8)
             {
                 playr.hooks++;
+                mainfishthing.moreHooks();
             }
             else
             {

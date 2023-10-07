@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class THEfish : MonoBehaviour
 {
+    private bool badweirdtimervariable = false;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2.0f);
+        Invoke("rah", 1.0f);
+        Destroy(gameObject, 2.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.05f, 1.05f, 1.05f));
+        if (badweirdtimervariable)
+        {
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.05f, 1.05f, 1.05f));
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(other.gameObject);
+    }
+    void rah()
+    {
+        badweirdtimervariable = true;
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.Animations;
 
 public class player : MonoBehaviour
 {
+    public Camera cam;
     public GameObject swotrmxfisjfk;
     public float speed;
     public fishshooter fishgun;
@@ -14,10 +15,7 @@ public class player : MonoBehaviour
     public Rigidbody2D rb;
     public int hooks;
     public Vector2 inputVector;
-
-    void Start()
-    {
-    }
+    private Vector3 offset = new Vector3 (0, 0, -10);
 
     // Update is called once per frame
     void Update()
@@ -26,6 +24,10 @@ public class player : MonoBehaviour
         //no i wont
         inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.velocity = (inputVector.normalized) * speed;
+    }
+    private void LateUpdate()
+    {
+        cam.transform.position = transform.position + offset;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,7 +39,7 @@ public class player : MonoBehaviour
         }
         else
         {
-            Instantiate(swotrmxfisjfk);
+            Instantiate(swotrmxfisjfk, transform);
         }
         fishgun.fishInventory[7] -=1;
     }

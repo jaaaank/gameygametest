@@ -78,6 +78,7 @@ public class fishshooter : MonoBehaviour
                 {
                     Instantiate(bulletPrefabs[5], gameObject.transform);
                     fishInventory[5] -= 1;
+                    updateInterface();
                 }
             break;
 
@@ -129,6 +130,8 @@ public class fishshooter : MonoBehaviour
 
     public void updateInterface()
     {
+        //this is DISGUSTING
         uhhtext.text = (fishInventory[0].ToString() + "   " + fishInventory[1].ToString() + "   " + fishInventory[2].ToString() + "   " + fishInventory[3].ToString() + "   " + fishInventory[4].ToString() + "   " + fishInventory[5].ToString() + "   " + fishInventory[6].ToString());
+        
     }
 }
