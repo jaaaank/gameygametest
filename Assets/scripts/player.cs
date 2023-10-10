@@ -36,10 +36,10 @@ public class player : MonoBehaviour
     {
         if (collision.collider.tag != "wall")
         {
-            print("collided");
             if (fishgun.fishInventory[7] <= 0)
             {
                 brogotmurked.dead();
+                print("absolutely murked");
                 Destroy(gameObject);
             }
             else
