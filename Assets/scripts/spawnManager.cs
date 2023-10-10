@@ -36,7 +36,7 @@ public class spawnManager : MonoBehaviour
         {
             Instantiate(enemy, randomizeSpawn(),enemy.transform.rotation);
         }
-        numenemies *= 1.1f;
+        numenemies *= 1.2f;
         breaktime *= .95f;
         Invoke("hellishLoop", breaktime);
     }
