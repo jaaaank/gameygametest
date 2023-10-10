@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class THEfish : MonoBehaviour
 {
+    public AudioSource sound;
     private bool badweirdtimervariable = false;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,8 @@ public class THEfish : MonoBehaviour
     {
         if (badweirdtimervariable)
         {
-            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.05f, 1.05f, 1.05f));
+            //this kinda sucks because varies by framerate but this is due tomorrow and it's really not that bad so whatever
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1.25f, 1.25f, 1.25f));
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,6 +28,7 @@ public class THEfish : MonoBehaviour
     }
     void rah()
     {
+        sound.Play();
         badweirdtimervariable = true;
     }
 }

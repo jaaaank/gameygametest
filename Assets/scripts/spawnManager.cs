@@ -15,7 +15,6 @@ public class spawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playaer.score = 0;
         Invoke("hellishLoop", breaktime);
     }
 
@@ -37,8 +36,7 @@ public class spawnManager : MonoBehaviour
         {
             Instantiate(enemy, randomizeSpawn(),enemy.transform.rotation);
         }
-        playaer.score *= 1.15f;
-        numenemies *= 1.15f;
+        numenemies *= 1.1f;
         breaktime *= .95f;
         Invoke("hellishLoop", breaktime);
     }

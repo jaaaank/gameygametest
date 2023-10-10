@@ -7,6 +7,7 @@ using UnityEngine.Animations;
 
 public class player : MonoBehaviour
 {
+    public deathscreen brogotmurked;
     public Camera cam;
     public GameObject swotrmxfisjfk;
     public float speed;
@@ -20,6 +21,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        score = Time.deltaTime;
         //i could do my own acceleration thing for this dont know if i will 
         //no i wont
         inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -32,16 +34,21 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print("collided");
-        if (fishgun.fishInventory[7] <= 0)
+        if (collision.collider.tag != "wall")
         {
-            Destroy(gameObject);
+            print("collided");
+            if (fishgun.fishInventory[7] <= 0)
+            {
+                brogotmurked.dead();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instantiate(swotrmxfisjfk, transform);
+            }
+            fishgun.fishInventory[7] -= 1;
         }
-        else
-        {
-            Instantiate(swotrmxfisjfk, transform);
-        }
-        fishgun.fishInventory[7] -=1;
+
     }
 
 }

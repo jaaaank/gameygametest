@@ -15,8 +15,6 @@ public class fishing : MonoBehaviour
     private int move = -1;
     public bool isfishing = false;
     public GameObject youfishing;
-    public Vector3 youresize = new Vector3(1, 1.2f,1);
-
     // Start is called before the first frame update
     void Start()
     {
@@ -73,10 +71,14 @@ public class fishing : MonoBehaviour
     }
     public void moreHooks()
     {
-        if (player.hooks > 0)
+        if (player.hooks > 0 & youfishing.transform.localScale.y< 3.5)
         {
-            youresize.y = (1.01f * player.hooks);
-            youfishing.transform.localScale = Vector3.Scale(youfishing.transform.localScale, youresize);
+            youfishing.transform.localScale += new Vector3(0, 0.25f, 0);
+            if (youfishing.transform.localScale.y > 3.5f)
+            {
+            youfishing.transform.localScale = new Vector3(1, 3.5f, 1);
+
+            }
             print("more hooks");
         }
     }
