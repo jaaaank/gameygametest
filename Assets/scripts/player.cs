@@ -47,6 +47,7 @@ public class player : MonoBehaviour
                 Instantiate(swotrmxfisjfk, transform);
             }
             fishgun.fishInventory[7] -= 1;
+            fishgun.updateInterface();
         }
 
     }

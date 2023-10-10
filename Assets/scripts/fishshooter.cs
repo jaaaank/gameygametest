@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class fishshooter : MonoBehaviour
 {
     public Camera cam;
-    public GameObject player;
+    public player playr;
     private int fishEquipped = 0;
     public Text uhhtext;
     /* 
@@ -131,7 +131,7 @@ public class fishshooter : MonoBehaviour
     public void updateInterface()
     {
         //this is DISGUSTING
-        uhhtext.text = (fishInventory[0].ToString() + "   " + fishInventory[1].ToString() + "   " + fishInventory[2].ToString() + "   " + fishInventory[3].ToString() + "   " + fishInventory[4].ToString() + "   " + fishInventory[5].ToString() + "   " + fishInventory[6].ToString());
+        uhhtext.text = (fishInventory[0].ToString() + "   " + fishInventory[1].ToString() + "   " + fishInventory[2].ToString() + "   " + fishInventory[3].ToString() + "   " + fishInventory[4].ToString() + "   " + fishInventory[5].ToString() + "   " + fishInventory[6].ToString() + "            " + fishInventory[7].ToString() + "    " + playr.hooks.ToString());
         
     }
 }
